@@ -1,0 +1,25 @@
+# Environnement virtuel
+venv/
+ENV/
+.env/
+
+# Fichiers Python générés
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+*.log
+
+# VS Code
+.vscode/
+
+# Distribution / build
+build/
+dist/
+*.egg-info/
+
+# Cache pip
+pip-wheel-metadata/
+
