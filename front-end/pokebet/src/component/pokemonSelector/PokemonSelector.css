@@ -1,0 +1,49 @@
+.pokemon-selector-container {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	padding: 18px 32px;
+	border-radius: 20px;
+	margin-top: 100px;
+}
+
+.pokeball-btn {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	margin: 0;
+	transition: transform 0.12s, filter 0.12s;
+}
+
+.pokeball-btn:hover {
+	transform: scale(1.08);
+	filter: brightness(1.15);
+}
+
+.pokeball-img {
+	width: 60px;
+	display: block;
+}
+
+.select-text {
+	font-size: 1.18rem;
+	color: #fff;
+	font-weight: 600;
+	user-select: none;
+	pointer-events: none;
+}
+
+@media (max-width: 600px) {
+	.pokemon-selector-container {
+		gap: 10px;
+		padding: 10px 8px;
+		margin-top: 40px;
+	}
+	.pokeball-img {
+		width: 38px;
+	}
+	.select-text {
+		font-size: 0.95rem;
+	}
+}
