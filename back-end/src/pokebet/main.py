@@ -1,9 +1,11 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List, Optional
 import random
 
 app = FastAPI(title="PokéBet API")
+
+# --- Data ---
 
 POKEMONS = [
     {"id": 1, "name": "Ronflex",     "type1": "Normal",   "type2": None,      "bst": 540},
