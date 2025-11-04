@@ -1,12 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        
-      </header>
+      <img src='..\assets\PokeBet_Group.png' alt='PokeBet_Logo'></img>
     </div>
   );
 }
