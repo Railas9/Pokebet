@@ -1,1 +1,1 @@
-# Pokebet
+Lancer le serveur avec : uvicorn --app-dir src pokebet.main:app --reload
