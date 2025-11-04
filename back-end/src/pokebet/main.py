@@ -1,7 +1,8 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List, Optional
 import random
+from .probabilities import probability_matchup
 
 app = FastAPI(title="PokéBet API")
 
@@ -32,6 +33,14 @@ class Pokemon(BaseModel):
 class PokemonListResponse(BaseModel):
     pokemon: List[Pokemon]
 
+class PredictRequest(BaseModel):
+    pokemon_a: List[int]
+    pokemon_b: List[int]
+
+class PredictResponse(BaseModel):
+    winner_ids: List[int]
+    probabilities: dict
+
 
 def get_pokemon_by_id(pokemon_id: int) -> Optional[dict]:
     for p in POKEMONS:
@@ -50,3 +59,35 @@ def random_pokemon(team: bool = False):
 
     items = random.sample(POKEMONS, count)
     return {"pokemon": items}
+
+@app.post("/predict", response_model=PredictResponse)
+def predict(req: PredictRequest):
+    # Récupération des Pokémon par ID
+    team_a = [get_pokemon_by_id(pid) for pid in req.pokemon_a]
+    team_b = [get_pokemon_by_id(pid) for pid in req.pokemon_b]
+
+    if None in team_a or None in team_b:
+        raise HTTPException(400, "Un ou plusieurs Pokémon n'existent pas")
+
+    # Extraction des BST
+    bsts_a = [p["bst"] for p in team_a]
+    bsts_b = [p["bst"] for p in team_b]
+
+    # Calcul proba
+    p_a, p_b = probability_matchup(bsts_a, bsts_b)
+
+    # Détermination du gagnant
+    if p_a > p_b:
+        winner = req.pokemon_a
+    elif p_b > p_a:
+        winner = req.pokemon_b
+    else:
+        winner = []  # ex-aequo, on verra plus tard
+
+    return {
+        "winner_ids": winner,
+        "probabilities": {
+            "team_a": p_a,
+            "team_b": p_b
+        }
+    }
