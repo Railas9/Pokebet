@@ -29,14 +29,15 @@ html, body {
 }
 
 .bg-logo {
+  position: absolute;
   object-fit: fill;
   width: 100%;
 }
 
 /* Two-column battle arena */
 .arena {
+  height: 100%;
   width: 100%;
-  height: calc(100vh - 120px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,7 +62,7 @@ html, body {
 
 .divider {
   width: 2px;
-  height: 90%;
+  height: 50%;
   background: #ffffffcc;
   border-radius: 2px;
 }
