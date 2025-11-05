@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[2]
 DATA_PATH = ROOT / "data" / "merged_light.csv"
 
 # Model parameters definition -> Hyperparameters for the RandomForestClassifier
-model_params = {"n_estimators": 100, "random_state": 42, "max_features": 2}
+model_params = {"n_estimators": 100, "random_state": 0, "max_features": 2}
 
 
 def load_data(data_path: Path = DATA_PATH):
