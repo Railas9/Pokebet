@@ -32,3 +32,42 @@ html, body {
   object-fit: fill;
   width: 100%;
 }
+
+/* Two-column battle arena */
+.arena {
+  width: 100%;
+  height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.side {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side.left {
+  padding-left: 48px;
+}
+
+.side.right {
+  padding-right: 56px;
+}
+
+.divider {
+  width: 2px;
+  height: 90%;
+  background: #ffffffcc;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .arena { height: calc(100vh - 96px); }
+  .side.left { padding-left: 16px; }
+  .side.right { padding-right: 16px; }
+}
