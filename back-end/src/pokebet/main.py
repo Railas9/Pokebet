@@ -21,6 +21,7 @@ POKEMONS = [
     {"id":10, "name": "Mistigrix",   "type1": "Psy",      "type2": None,      "bst": 466},
 ]
 
+# --- Models ---
 
 class Pokemon(BaseModel):
     id: int
@@ -29,18 +30,21 @@ class Pokemon(BaseModel):
     type2: Optional[str] = None
     bst: int
 
-
 class PokemonListResponse(BaseModel):
     pokemon: List[Pokemon]
 
 class PredictRequest(BaseModel):
-    pokemon_a: List[int]
-    pokemon_b: List[int]
+    trainer_a: List[int]
+    trainer_b: List[int]
+
+class TeamProbabilities(BaseModel):
+    trainer_a: float
+    trainer_b: float
 
 class PredictResponse(BaseModel):
-    winner_ids: List[int]
-    probabilities: dict
+    probabilities: TeamProbabilities
 
+# --- Utils ---
 
 def get_pokemon_by_id(pokemon_id: int) -> Optional[dict]:
     for p in POKEMONS:
@@ -49,6 +53,7 @@ def get_pokemon_by_id(pokemon_id: int) -> Optional[dict]:
     return None
 
 # --- Routes ---
+
 @app.get("/health")
 def health():
     return {"status": "ok"}
@@ -56,18 +61,21 @@ def health():
 @app.get("/pokemon/random", response_model=PokemonListResponse)
 def random_pokemon(team: bool = False):
     count = 6 if team else 1
-
     items = random.sample(POKEMONS, count)
     return {"pokemon": items}
 
 @app.post("/predict", response_model=PredictResponse)
 def predict(req: PredictRequest):
-    # Récupération des Pokémon par ID
-    team_a = [get_pokemon_by_id(pid) for pid in req.pokemon_a]
-    team_b = [get_pokemon_by_id(pid) for pid in req.pokemon_b]
+    # 1v1 ou 6v6, mêmes tailles
+    len_a, len_b = len(req.trainer_a), len(req.trainer_b)
+    if len_a != len_b or len_a not in (1, 6):
+        raise HTTPException(status_code=400, detail="Format invalide : 1v1 ou 6v6 uniquement.")
 
+    # Récupération des Pokémon par ID
+    team_a = [get_pokemon_by_id(pid) for pid in req.trainer_a]
+    team_b = [get_pokemon_by_id(pid) for pid in req.trainer_b]
     if None in team_a or None in team_b:
-        raise HTTPException(400, "Un ou plusieurs Pokémon n'existent pas")
+        raise HTTPException(status_code=400, detail="Un ou plusieurs Pokémon n'existent pas")
 
     # Extraction des BST
     bsts_a = [p["bst"] for p in team_a]
@@ -76,18 +84,10 @@ def predict(req: PredictRequest):
     # Calcul proba
     p_a, p_b = probability_matchup(bsts_a, bsts_b)
 
-    # Détermination du gagnant
-    if p_a > p_b:
-        winner = req.pokemon_a
-    elif p_b > p_a:
-        winner = req.pokemon_b
-    else:
-        winner = []  # ex-aequo, on verra plus tard
+    # Normaliser/arrondir (propre pour l'UI)
+    total = p_a + p_b
+    if total > 0:
+        p_a, p_b = p_a / total, p_b / total
+    p_a, p_b = round(p_a, 4), round(p_b, 4)
 
-    return {
-        "winner_ids": winner,
-        "probabilities": {
-            "team_a": p_a,
-            "team_b": p_b
-        }
-    }
+    return {"probabilities": {"trainer_a": p_a, "trainer_b": p_b}}
