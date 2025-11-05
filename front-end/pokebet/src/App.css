@@ -16,6 +16,19 @@ html, body {
   height: 100vh;
 }
 
+.header {
+  width: 100%;
+}
+
 .logo {
   position: absolute;
+  top: 0;
+  margin-top: 8px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.bg-logo {
+  object-fit: fill;
+  width: 100%;
 }

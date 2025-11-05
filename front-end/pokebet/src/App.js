@@ -9,10 +9,12 @@ function App() {
 	}
 	return (
 		<div className='App'>
-			<img src={bg_logo} alt='PokeBet_BG'></img>
-			<img className='logo' src={logo} alt='PokeBet_Logo'></img>
+			<div className='header'>
+				<img className='bg-logo' src={bg_logo} alt='PokeBet_BG'></img>
+				<img className='logo' src={logo} alt='PokeBet_Logo'></img>
 
-			<PokemonSelector onClick={handleSelectClick} />
+				<PokemonSelector onClick={handleSelectClick} />
+			</div>
 		</div>
 	)
 }
