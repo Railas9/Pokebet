@@ -1,0 +1,32 @@
+artifact_path: file:///C:/Users/valrp/Desktop/WebDev/IA/Pokebet/back-end/src/mlflow/1/models/m-b2bc76aec7b8404689c1ff7dfd412281/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.9
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+is_signature_from_type_hint: false
+mlflow_version: 3.5.1
+model_id: m-b2bc76aec7b8404689c1ff7dfd412281
+model_size_bytes: 35027254
+model_uuid: m-b2bc76aec7b8404689c1ff7dfd412281
+prompts: null
+run_id: af363174b5d04b888e904313efc1ec91
+signature:
+  inputs: '[{"type": "long", "name": "HP_diff", "required": true}, {"type": "long",
+    "name": "Attack_diff", "required": true}, {"type": "long", "name": "Defense_diff",
+    "required": true}, {"type": "long", "name": "Sp. Atk_diff", "required": true},
+    {"type": "long", "name": "Sp. Def_diff", "required": true}, {"type": "long", "name":
+    "Speed_diff", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-11-04 23:41:08.524370'
