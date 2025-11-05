@@ -1,6 +1,6 @@
 import "./App.css"
 import bg_logo from "./assets/BG_Logo.svg"
-import logo from "./assets/PokeBet_Group.png"
+import logo from "./assets/PokeBet_Group.svg"
 import PokemonSelector from "../src/component/pokemonSelector/PokemonSelector.jsx"
 
 function App() {
