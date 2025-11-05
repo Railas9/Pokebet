@@ -48,5 +48,38 @@
             "sp_defense": 75,
             "speed": 110
         }
+    },
+    {
+        "id": 4,
+        "name": "Makuhita",
+        "image_url": "back-end/src/assets/Makuhita.png",
+        "types": {
+            "type1": "Combat"
+        },
+        "stats": {
+            "hp": 72,
+            "attack": 60,
+            "defense": 30,
+            "sp_attack": 20,
+            "sp_defense": 30,
+            "speed": 25
+        }
+    },
+    {
+        "id": 5,
+        "name": "Brutalibré",
+        "image_url": "back-end/src/assets/Brutalibré.png",
+        "types": {
+            "type1": "Combat",
+            "type2": "Vol"
+        },
+        "stats": {
+            "hp": 78,
+            "attack": 92,
+            "defense": 75,
+            "sp_attack": 74,
+            "sp_defense": 63,
+            "speed": 118
+        }
     }
 ]
