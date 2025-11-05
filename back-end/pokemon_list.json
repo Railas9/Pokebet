@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "name": "Amphinobi",
+        "image_url": "back-end/src/assets/Amphinobi.png",
+        "types": {
+            "type1": "Eau",
+            "type2": "Ténèbres"
+        },
+        "stats": {
+            "hp": 72,
+            "attack": 95,
+            "defense": 67,
+            "sp_attack": 103,
+            "sp_defense": 71,
+            "speed": 122
+        }
+    },
+    {
+        "id": 2,
+        "name": "Ronflex",
+        "image_url": "back-end/src/assets/Ronflex.png",
+        "types": {
+            "type1": "Normal"
+        },
+        "stats": {
+            "hp": 160,
+            "attack": 110,
+            "defense": 65,
+            "sp_attack": 65,
+            "sp_defense": 110,
+            "speed": 30
+        }
+    },
+    {
+        "id": 3,
+        "name": "Ectoplasma",
+        "image_url": "back-end/src/assets/Ectoplasma.png",
+        "types": {
+            "type1": "Spectre",
+            "type2": "Poison"
+        },
+        "stats": {
+            "hp": 60,
+            "attack": 65,
+            "defense": 60,
+            "sp_attack": 130,
+            "sp_defense": 75,
+            "speed": 110
+        }
+    }
+]

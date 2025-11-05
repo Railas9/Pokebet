@@ -4,6 +4,7 @@ ENV/
 .env/
 .venv/
 back-end/src/mlflow/mlartifacts/
+back-end/mlflow.db
 
 # Fichiers Python générés
 __pycache__/
