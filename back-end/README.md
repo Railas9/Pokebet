@@ -2,7 +2,7 @@
 
 ### Lancement du serveur
 
-Pour lancer le serveur MLFLOW utiliser la commande suivante dans un env python:
+Pour lancer le serveur MLFLOW utiliser la commande suivante dans un env python (au niveau du backend du projet):
 
 `mlflow server --backend-store-uri "sqlite:///<path_absolu_du_projet>/back-end/mlflow.db" --default-artifact-root "file:///<path_absolu_du_projet>/back-end/src/mlflow" --host <host> --port <port>`
 
