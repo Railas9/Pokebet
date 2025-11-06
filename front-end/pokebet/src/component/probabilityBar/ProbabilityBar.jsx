@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProbabilityBar.css';
 
-function ProbabilityBar({ leftPercent = 55, rightPercent = 45 }) {
+function ProbabilityBar({ leftPercent, rightPercent}) {
   return (
     <div className="probability-bar-container">
       <div className="probability-label">Probabilité de victoire</div>
