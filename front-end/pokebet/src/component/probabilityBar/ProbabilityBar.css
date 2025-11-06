@@ -30,17 +30,7 @@
 }
 
 .probability-segment.left {
-	background: #0077ff;
-}
-
-.value-left {
-	margin-top: 0;
-    font-size: xx-large;
-}
-
-.value-right {
-	margin-top: 0;
-	font-size: xx-large;
+	background: #00B3FF;
 }
 
 .probability-segment.right {
@@ -59,10 +49,14 @@
 
 .value-left {
 	position: absolute;
-	transform: translateX(-50%);
+	left: 0%;
+	margin-top: 0;
+    font-size: xx-large;
 }
 
 .value-right {
 	position: absolute;
-	transform: translateX(-50%);
+	right: 0%;
+	margin-top: 0;
+	font-size: xx-large;
 }

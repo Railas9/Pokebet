@@ -81,5 +81,39 @@
             "sp_defense": 63,
             "speed": 118
         }
+    },
+    {
+        "id": 6,
+        "name": "Rayquaza",
+        "image_url": "./assets/pokemon/Amphinobi.png",
+        "types": {
+            "type1": "Dragon",
+            "type2": "Vol"
+        },
+        "stats": {
+            "hp": 105,
+            "attack": 150,
+            "defense": 90,
+            "sp_attack": 150,
+            "sp_defense": 90,
+            "speed": 95
+        }
+    },
+    {
+        "id": 7,
+        "name": "Méga-Rayquaza",
+        "image_url": "./assets/pokemon/Amphinobi.png",
+        "types": {
+            "type1": "Dragon",
+            "type2": "Vol"
+        },
+        "stats": {
+            "hp": 105,
+            "attack": 180,
+            "defense": 100,
+            "sp_attack": 180,
+            "sp_defense": 100,
+            "speed": 115
+        }
     }
 ]

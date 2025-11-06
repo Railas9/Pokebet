@@ -139,3 +139,112 @@ body {
 		padding-bottom: 20px;
 	}
 }
+
+/* ========================== FIGHT PAGE CSS ========================== */
+
+.pokemon-name {
+	font-size: 300%;
+	margin-bottom: 8px;
+}
+
+.left-side {
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding-left: 2%;
+	color: #ffffff;
+	font-size: 100%;
+}
+
+.left-stat {
+	display: flex;
+	justify-content: start;
+}
+
+.left-stats {
+	font-size: 150%;
+	padding: 0%;
+}
+
+.left-info {
+	position: relative;
+	top: 60%;
+	transform: translateY(-50%);
+}
+
+.left-side.unpicked {
+	background: linear-gradient(to right, rgba(0, 179, 255, 0), rgba(0, 179, 255, 0));
+	width: 50%;
+	height: 100vh;
+	position: fixed;
+	left: 0;
+}
+
+.left-side.picked {
+	background: linear-gradient(to right, rgba(0, 179, 255, 0.25), rgba(0, 179, 255, 0));
+	width: 50%;
+	height: 100vh;
+	position: fixed;
+	left: 0;
+}
+
+.right-side {
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding-right: 2%;
+	color: #ffffff;
+	font-size: 100%;
+}
+
+.right-stat {
+	display: flex;
+	justify-content: end;
+}
+
+.right-stats {
+	font-size: 150%;
+	padding: 0%;
+}
+
+.right-info {
+	position: relative;
+	top: 60%;
+	transform: translateY(-50%);
+}
+
+.right-side.unpicked {
+	background: linear-gradient(to right, rgba(255, 0, 0, 0), rgba(255, 0, 0, 0));
+	width: 50%;
+	height: 100vh;
+	position: fixed;
+	right: 0;
+}
+
+.right-side.picked {
+	background: linear-gradient(to right, rgba(255, 0, 0, 0), rgba(255, 0, 0, 0.25));
+	width: 50%;
+	height: 100vh;
+	position: fixed;
+	right: 0;
+}
+
+.vs-logo {
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 20%;
+}
+
+/* ========================== RESULTS CSS ========================== */
+
+.result-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
