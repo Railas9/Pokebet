@@ -6,9 +6,23 @@ from .probabilities import probability_matchup
 from .mlflow_api import router as mlflow_router, init_mlflow_model
 from pathlib import Path
 import json
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="PokéBet API")
 app.include_router(mlflow_router)
+
+origins = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # --- Data ---
 
@@ -107,6 +121,10 @@ def random_pokemon(team: bool = False):
     items = random.sample(POKEMONS, count)
     return {"pokemon": items}
 
+@app.get("/pokemon/one_random/", response_model=Pokemon)
+def one_random_pokemon():
+    item = random.choice(POKEMONS)
+    return item
 
 @app.get("/pokemon/{pokemon_id}", response_model=Pokemon)
 def get_pokemon(pokemon_id: int):
