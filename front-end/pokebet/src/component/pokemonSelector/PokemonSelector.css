@@ -5,7 +5,6 @@
 	gap: 0;
 	padding: 18px 32px;
 	border-radius: 20px;
-	margin-top: 100px;
 }
 
 .pokeball-btn {
@@ -67,7 +66,6 @@
 	.pokemon-selector-container {
 		gap: 10px;
 		padding: 10px 8px;
-		margin-top: 40px;
 	}
 	.pokeball-img {
 		width: 38px;
