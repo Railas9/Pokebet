@@ -3,6 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from dotenv import load_dotenv
 from sklearn.metrics import accuracy_score, f1_score, roc_auc_score
+from data_prep import data_prep
 
 load_dotenv()
 
@@ -16,7 +17,35 @@ def main():
     mlflow.set_tracking_uri(TRACK)
     mlflow.set_experiment(EXP)
 
-    df = pd.read_csv(DATA)
+    drop_columns = [
+        "First_pokemon",
+        "Second_pokemon",
+        "Winner",
+        "Name_1",
+        "Name_2",
+        "Type_1_1",
+        "Type_1_2",
+        "Type_2_1",
+        "Type_2_2",
+        "HP_1",
+        "Attack_1",
+        "Defense_1",
+        "Sp_Atk_1",
+        "Sp_Def_1",
+        "Speed_1",
+        "HP_2",
+        "Attack_2",
+        "Defense_2",
+        "Sp_Atk_2",
+        "Sp_Def_2",
+        "Speed_2",
+        "Generation_1",
+        "Generation_2",
+        "Legendary_1",
+        "Legendary_2",
+    ]
+
+    df = data_prep(DATA, drop_columns)
     y = df["Is_First_Pokemon_Win"]
     X = df.drop(columns=["Is_First_Pokemon_Win"])
 
