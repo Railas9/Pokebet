@@ -1,0 +1,25 @@
+.action-button {
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	border: none;
+	border-radius: 12px;
+	color: white;
+	font-weight: 600;
+	font-size: 1.1rem;
+	padding: 12px 32px;
+	cursor: pointer;
+	transition: transform 0.15s;
+	min-width: 120px;
+	white-space: nowrap;
+	position: relative;
+	background-color: transparent;
+}
+
+.action-button:hover {
+	transform: scale(1.05);
+}
+
+.action-button:active {
+	transform: scale(0.98);
+}
