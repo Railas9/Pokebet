@@ -35,8 +35,25 @@ function App() {
 		fetchPokemonList();
 	}, [API_BASE]);
 
+	async function setRandomPokemon(selector) {
+		try {
+			const response = await fetch(`${API_BASE}/pokemon/one_random`);
+			if (!response.ok) {
+				throw new Error("Erreur au niveau du serveur.");
+			}
+			const data = await response.json();
+			if (selector === "left") {
+				setSelectedLeftId(data.pokemon.id);
+			} else if (selector === "right") {
+				setSelectedRightId(data.pokemon.id);
+			}
+		} catch (err) {
+			console.error("Erreur lors de la sélection aléatoire des Pokémon.", err);
+		}
+	}
+
 	const handleShuffleLeft = () => {
-		console.log("Shuffle gauche");
+		setRandomPokemon("left");
 	};
 
 	const handleBetLeft = () => {
@@ -48,7 +65,7 @@ function App() {
 	};
 
 	const handleShuffleRight = () => {
-		console.log("Shuffle droit");
+		setRandomPokemon("right");
 	};
 
 	return (

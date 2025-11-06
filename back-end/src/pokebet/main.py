@@ -101,6 +101,11 @@ def random_pokemon(team: bool = False):
     items = random.sample(POKEMONS, count)
     return {"pokemon": items}
 
+@app.get("/pokemon/one_random/", response_model=Pokemon)
+def one_random_pokemon():
+    item = random.choice(POKEMONS)
+    return item
+
 @app.get("/pokemon/{pokemon_id}", response_model=Pokemon)
 def get_pokemon(pokemon_id: int):
     pokemon = get_pokemon_by_id(pokemon_id)
