@@ -7,6 +7,21 @@
 	border-radius: 20px;
 }
 
+.info-container {
+	display: flex;
+	color: #ffffff;
+	flex-direction: column;
+	margin-left: 12px;
+}
+
+.pokemon-types {
+	font-size: 150%;
+}
+
+.base-stat-total {
+	font-size: 150%;
+}
+
 .pokeball-btn {
 	background: none;
 	border: none;
@@ -28,12 +43,10 @@
 }
 
 .select-text {
-	font-size: 1.18rem;
+	font-size: 200%;
 	color: #fff;
-	font-weight: 600;
 	user-select: none;
 	pointer-events: none;
-	margin-left: 20px;
 }
 
 .dropdown-list {

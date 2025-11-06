@@ -35,33 +35,35 @@ function PokemonSelector({ list = [], onSelect, text = "SÃ©lectionnez votre PokÃ
         />
       </button>
 
-      <span className="select-text">
-        {selected ? selected.name : text}
-      </span>
+      <div className="info-container">
+        <span className="select-text">
+          {selected ? selected.name : text}
+        </span>
 
-      <span className="pokemon-types">
-        {selected
-          ? selected.types["type1"] + (selected.types["type2"] ? ` / ${selected.types["type2"]}` : "")
-          : ""}
-      </span>
+        <span className="pokemon-types">
+          {selected
+            ? selected.types["type1"] + (selected.types["type2"] ? ` / ${selected.types["type2"]}` : "")
+            : ""}
+        </span>
 
-      <span className="base-stat-total">
-        {selected ? `BST: ${Object.values(selected.stats).reduce((a, b) => a + b, 0)}` : ""}
-      </span>
+        <span className="base-stat-total">
+          {selected ? `BST: ${Object.values(selected.stats).reduce((a, b) => a + b, 0)}` : ""}
+        </span>
 
-      {open && (
-        <ul className="dropdown-list">
-          {list.map((pokemon) => (
-            <li
-              key={pokemon.id}
-              className="dropdown-item"
-              onClick={() => handleSelect(pokemon)}
-            >
-              {pokemon.name}
-            </li>
-          ))}
-        </ul>
-      )}
+        {open && (
+          <ul className="dropdown-list">
+            {list.map((pokemon) => (
+              <li
+                key={pokemon.id}
+                className="dropdown-item"
+                onClick={() => handleSelect(pokemon)}
+              >
+                {pokemon.name}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }

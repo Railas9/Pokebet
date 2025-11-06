@@ -6,12 +6,11 @@
 	flex-direction: column;
 	gap: 8px;
 	color: white;
-	font-size: 0.9rem;
+	font-size: 150%;
 	z-index: 10;
 }
 
 .battle-type-label {
-	font-weight: 600;
 	margin-bottom: 4px;
 }
 
@@ -49,7 +48,6 @@
 	transform: translate(-50%, -50%);
 	color: white;
 	font-size: 12px;
-	font-weight: bold;
 }
 
 .battle-text {

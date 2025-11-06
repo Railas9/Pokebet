@@ -4,17 +4,15 @@
 	align-items: flex-start;
 	gap: 8px;
 	margin: 20% 0;
-	width: 100%;
-	height: 55px;
+	width: 150%;
+	height: 1%;
 	margin-bottom: 10px;
 }
 
 .probability-label {
 	color: white;
-	font-weight: 600;
-	font-size: 1rem;
+	font-size: 2rem;
 	align-self: flex-start;
-	padding-left: 20px;
 }
 
 .probability-bar {
@@ -23,7 +21,7 @@
 	display: flex;
 	border-radius: 15px;
 	overflow: hidden;
-	border: 3px solid rgba(255, 255, 255, 1);
+	border: 6px solid rgba(255, 255, 255, 1);
 }
 
 .probability-segment {
@@ -32,11 +30,21 @@
 }
 
 .probability-segment.left {
-	background: linear-gradient(90deg, #4a90e2, #5ba0f2);
+	background: #0077ff;
+}
+
+.value-left {
+	margin-top: 0;
+    font-size: xx-large;
+}
+
+.value-right {
+	margin-top: 0;
+	font-size: xx-large;
 }
 
 .probability-segment.right {
-	background: linear-gradient(90deg, #e24a4a, #f25a5a);
+	background: #ff0000;
 }
 
 .probability-values {
@@ -44,7 +52,6 @@
 	width: 100%;
 	justify-content: center;
 	color: white;
-	font-weight: 600;
 	font-size: 0.95rem;
 	margin-top: 4px;
 	position: relative;

@@ -140,6 +140,8 @@ function App() {
 					/>
 				</div>
 
+				<hr className='divider' />
+
 				<div className='arena'>
 					{loading ? (
 						<p>Chargement de la liste...</p>

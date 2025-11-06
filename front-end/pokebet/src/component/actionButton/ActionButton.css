@@ -5,15 +5,15 @@
 	border: none;
 	border-radius: 12px;
 	color: white;
-	font-weight: 600;
-	font-size: 1.1rem;
-	padding: 12px 32px;
+	font-size: 200%;
+	padding: 24px 64px;
 	cursor: pointer;
 	transition: transform 0.15s;
 	min-width: 120px;
 	white-space: nowrap;
 	position: relative;
 	background-color: transparent;
+	font-family: 'Jockey One', sans-serif;
 }
 
 .action-button:hover {
