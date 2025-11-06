@@ -3,10 +3,12 @@ from pydantic import BaseModel
 from typing import List, Optional
 import random
 from .probabilities import probability_matchup
+from .mlflow_api import router as mlflow_router, init_mlflow_model
 from pathlib import Path
 import json
 
 app = FastAPI(title="PokéBet API")
+app.include_router(mlflow_router)
 
 # --- Data ---
 
@@ -21,7 +23,7 @@ app = FastAPI(title="PokéBet API")
 #    {"id": 8, "name": "Raichu",      "type1": "Électrik", "type2": None,      "bst": 485},
 #    {"id": 9, "name": "Archéduc",    "type1": "Plante",   "type2": "Spectre", "bst": 530},
 #    {"id":10, "name": "Mistigrix",   "type1": "Psy",      "type2": None,      "bst": 466},
-#]
+# ]
 
 _base_path = Path(__file__).resolve().parent.parent
 _pokemon_file = _base_path / "../pokemon_list.json"
@@ -39,10 +41,13 @@ class Pokemon(BaseModel):
     id: int
     name: str
     image_url: Optional[str] = None
+
     class Types(BaseModel):
         type1: str
         type2: Optional[str] = None
+
     types: Types
+
     class Stats(BaseModel):
         hp: int
         attack: int
@@ -50,15 +55,18 @@ class Pokemon(BaseModel):
         sp_attack: int
         sp_defense: int
         speed: int
+
     stats: Stats
 
 
 class PokemonListResponse(BaseModel):
     pokemon: List[Pokemon]
 
+
 class PredictRequest(BaseModel):
     pokemon_a: List[int]
     pokemon_b: List[int]
+
 
 class PredictResponse(BaseModel):
     winner_ids: List[int]
@@ -71,14 +79,26 @@ def get_pokemon_by_id(pokemon_id: int) -> Optional[dict]:
             return p
     return None
 
+
+@app.on_event("startup")
+def load_mlflow_model():
+    try:
+        init_mlflow_model()
+    except Exception:
+        # Keep API alive; lazy load will retry at request time
+        pass
+
+
 # --- Routes ---
 @app.get("/health")
 def health():
     return {"status": "ok"}
 
+
 @app.get("/pokemon/all", response_model=PokemonListResponse)
 def all_pokemon():
     return {"pokemon": POKEMONS}
+
 
 @app.get("/pokemon/random", response_model=PokemonListResponse)
 def random_pokemon(team: bool = False):
@@ -87,12 +107,14 @@ def random_pokemon(team: bool = False):
     items = random.sample(POKEMONS, count)
     return {"pokemon": items}
 
+
 @app.get("/pokemon/{pokemon_id}", response_model=Pokemon)
 def get_pokemon(pokemon_id: int):
     pokemon = get_pokemon_by_id(pokemon_id)
     if not pokemon:
         raise HTTPException(404, "Pokémon non trouvé")
     return pokemon
+
 
 @app.post("/predict", response_model=PredictResponse)
 def predict(req: PredictRequest):
@@ -118,10 +140,4 @@ def predict(req: PredictRequest):
     else:
         winner = []  # ex-aequo, on verra plus tard
 
-    return {
-        "winner_ids": winner,
-        "probabilities": {
-            "team_a": p_a,
-            "team_b": p_b
-        }
-    }
+    return {"winner_ids": winner, "probabilities": {"team_a": p_a, "team_b": p_b}}
