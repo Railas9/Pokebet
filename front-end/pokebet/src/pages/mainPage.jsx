@@ -96,15 +96,15 @@ function MainPage() {
 
 	async function setRandomPokemon(selector) {
 		try {
-			const response = await fetch(`${API_BASE}/pokemon/one_random`)
+			const response = await fetch(`${API_BASE}/pokemon/one_random/`)
 			if (!response.ok) {
 				throw new Error("Erreur au niveau du serveur.")
 			}
 			const data = await response.json()
 			if (selector === "left") {
-				setSelectedLeftId(data.pokemon.id)
+				setSelectedLeftId(data.name)
 			} else if (selector === "right") {
-				setSelectedRightId(data.pokemon.id)
+				setSelectedRightId(data.name)
 			}
 		} catch (err) {
 			console.error("Erreur lors de la sélection aléatoire des Pokémon.", err)
