@@ -12,6 +12,25 @@ def data_prep(
     drop_columns,
 ):
     data = pd.read_csv(data_path)
+
+    data["BST_1"] = (
+        data["HP_1"].astype(float)
+        + data["Attack_1"].astype(float)
+        + data["Defense_1"].astype(float)
+        + data["Sp_Atk_1"].astype(float)
+        + data["Sp_Def_1"].astype(float)
+        + data["Speed_1"].astype(float)
+    )
+    data["BST_2"] = (
+        data["HP_2"].astype(float)
+        + data["Attack_2"].astype(float)
+        + data["Defense_2"].astype(float)
+        + data["Sp_Atk_2"].astype(float)
+        + data["Sp_Def_2"].astype(float)
+        + data["Speed_2"].astype(float)
+    )
+    data["BST_diff"] = data["BST_1"] - data["BST_2"]
+
     # Drop columns that are not needed
     data_clean = data.drop(columns=drop_columns, errors="ignore")
 
@@ -21,10 +40,7 @@ def data_prep(
     # Remove rows with duplicate values
     data_clean = data_clean.drop_duplicates()
 
-    # Convert all columns to the correct type
-    data_clean = data_clean.astype(float)
-
-    print(data_clean.head())
+    print(data_clean[["BST_1", "BST_2", "BST_diff"]].head())
     return data_clean
 
 

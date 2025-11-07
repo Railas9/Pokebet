@@ -32,6 +32,9 @@ class PredictBody(BaseModel):
     Type2_1: str | None = None
     Type1_2: str | None = None
     Type2_2: str | None = None
+    BST_diff: float
+    BST_1: float
+    BST_2: float
 
 
 @router.post("/predict-mlflow")
@@ -53,6 +56,9 @@ def predict_mlflow(req: PredictBody):
                 "Speed_diff": req.Speed_diff,
                 "Type_Effectiveness_1": eff1,
                 "Type_Effectiveness_2": eff2,
+                "BST_1": req.BST_1,
+                "BST_2": req.BST_2,
+                "BST_diff": req.BST_diff,
             }
         ]
     )
