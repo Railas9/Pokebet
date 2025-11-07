@@ -20,13 +20,11 @@ function ProbabilityBar({ leftPercent, rightPercent}) {
       <div className="probability-values">
         <span
           className="value-left"
-          style={{ left: `${leftPercent / 2}%` }}
         >
           {leftPercent}%
         </span>
         <span
           className="value-right"
-          style={{ left: `${50 + rightPercent / 2}%` }}
         >
           {rightPercent}%
         </span>

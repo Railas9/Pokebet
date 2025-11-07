@@ -8,6 +8,7 @@ function BattleTypeSelector() {
     <div className="battle-type-selector">
       <span className="battle-type-label">Type de combat</span>
       <label className="battle-option">
+        <span className="battle-text">6 contre 6</span>
         <input
           type="radio"
           name="battleType"
@@ -16,9 +17,9 @@ function BattleTypeSelector() {
           onChange={(e) => setSelectedType(e.target.value)}
         />
         <span className="checkbox-custom"></span>
-        <span className="battle-text">6 contre 6</span>
       </label>
       <label className="battle-option">
+        <span className="battle-text">1 contre 1</span>
         <input
           type="radio"
           name="battleType"
@@ -27,7 +28,6 @@ function BattleTypeSelector() {
           onChange={(e) => setSelectedType(e.target.value)}
         />
         <span className="checkbox-custom"></span>
-        <span className="battle-text">1 contre 1</span>
       </label>
     </div>
   );

@@ -81,5 +81,89 @@
             "sp_defense": 63,
             "speed": 118
         }
+    },
+    {
+        "id": 6,
+        "name": "Rayquaza",
+        "image_url": "./assets/pokemon/Amphinobi.png",
+        "types": {
+            "type1": "Dragon",
+            "type2": "Vol"
+        },
+        "stats": {
+            "hp": 105,
+            "attack": 150,
+            "defense": 90,
+            "sp_attack": 150,
+            "sp_defense": 90,
+            "speed": 95
+        }
+    },
+    {
+        "id": 7,
+        "name": "Méga-Rayquaza",
+        "image_url": "./assets/pokemon/Amphinobi.png",
+        "types": {
+            "type1": "Dragon",
+            "type2": "Vol"
+        },
+        "stats": {
+            "hp": 105,
+            "attack": 180,
+            "defense": 100,
+            "sp_attack": 180,
+            "sp_defense": 100,
+            "speed": 115
+        }
+    },
+    {
+        "id": 8,
+        "name": "Lucario",
+        "image_url": "./assets/pokemon/Amphinobi.png",
+        "types": {
+            "type1": "Combat",
+            "type2": "Acier"
+        },
+        "stats": {
+            "hp": 70,
+            "attack": 110,
+            "defense": 70,
+            "sp_attack": 115,
+            "sp_defense": 70,
+            "speed": 90
+        }
+    },
+    {
+        "id": 9,
+        "name": "Méga-Lucario",
+        "image_url": "./assets/pokemon/Amphinobi.png",
+        "types": {
+            "type1": "Combat",
+            "type2": "Acier"
+        },
+        "stats": {
+            "hp": 70,
+            "attack": 145,
+            "defense": 88,
+            "sp_attack": 140,
+            "sp_defense": 70,
+            "speed": 112
+        }
+    },
+    {
+        "id": 10,
+        "name": "Magicarpe",
+        "image_url": "./assets/pokemon/Amphinobi.png",
+        "types": {
+            "type1": "Eau"
+        },
+        "stats": {
+            "hp": 20,
+            "attack": 10,
+            "defense": 55,
+            "sp_attack": 15,
+            "sp_defense": 20,
+            "speed": 80
+        }
     }
 ]
