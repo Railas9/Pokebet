@@ -21,47 +21,67 @@ def init_mlflow_model():
     ml_model = mlflow.sklearn.load_model(f"models:/{NAME}@{ALIAS}")
 
 
-class PredictBody(BaseModel):
-    HP_diff: float
-    Attack_diff: float
-    Defense_diff: float
-    Sp_Atk_diff: float
-    Sp_Def_diff: float
-    Speed_diff: float
+def ratio_stats(a: float, b: float):
+    s = a + b
+    return 0.5 if s == 0.0 else a / s
+
+
+class RawPredictBody(BaseModel):
+    HP_1: float
+    Attack_1: float
+    Defense_1: float
+    Sp_Atk_1: float
+    Sp_Def_1: float
+    Speed_1: float
     Type1_1: str | None = None
     Type2_1: str | None = None
+    HP_2: float
+    Attack_2: float
+    Defense_2: float
+    Sp_Atk_2: float
+    Sp_Def_2: float
+    Speed_2: float
     Type1_2: str | None = None
     Type2_2: str | None = None
-    BST_diff: float
-    BST_1: float
-    BST_2: float
+
+
+def build_features_from_raw(r: RawPredictBody):
+    feats = {
+        "HP_diff": r.HP_1 - r.HP_2,
+        "Attack_diff": r.Attack_1 - r.Attack_2,
+        "Defense_diff": r.Defense_1 - r.Defense_2,
+        "Sp_Atk_diff": r.Sp_Atk_1 - r.Sp_Atk_2,
+        "Sp_Def_diff": r.Sp_Def_1 - r.Sp_Def_2,
+        "Speed_diff": r.Speed_1 - r.Speed_2,
+    }
+
+    eff1, eff2 = get_type_effectiveness(r.Type1_1, r.Type2_1, r.Type1_2, r.Type2_2)
+    feats["Type_Effectiveness_1"] = eff1
+    feats["Type_Effectiveness_2"] = eff2
+
+    bst1 = r.HP_1 + r.Attack_1 + r.Defense_1 + r.Sp_Atk_1 + r.Sp_Def_1 + r.Speed_1
+    bst2 = r.HP_2 + r.Attack_2 + r.Defense_2 + r.Sp_Atk_2 + r.Sp_Def_2 + r.Speed_2
+    feats["BST_1"] = bst1
+    feats["BST_2"] = bst2
+    feats["BST_diff"] = bst1 - bst2
+
+    feats["HP_ratio"] = ratio_stats(r.HP_1, r.HP_2)
+    feats["Attack_ratio"] = ratio_stats(r.Attack_1, r.Attack_2)
+    feats["Defense_ratio"] = ratio_stats(r.Defense_1, r.Defense_2)
+    feats["Sp_Atk_ratio"] = ratio_stats(r.Sp_Atk_1, r.Sp_Atk_2)
+    feats["Sp_Def_ratio"] = ratio_stats(r.Sp_Def_1, r.Sp_Def_2)
+    feats["Speed_ratio"] = ratio_stats(r.Speed_1, r.Speed_2)
+
+    df = pd.DataFrame([feats])
+    return df
 
 
 @router.post("/predict-mlflow")
-def predict_mlflow(req: PredictBody):
+def predict_mlflow(req: RawPredictBody):
     if ml_model is None:
         raise HTTPException(503, "No Production model available")
 
-    eff1, eff2 = get_type_effectiveness(
-        req.Type1_1, req.Type2_1, req.Type1_2, req.Type2_2
-    )
-    X = pd.DataFrame(
-        [
-            {
-                "HP_diff": req.HP_diff,
-                "Attack_diff": req.Attack_diff,
-                "Defense_diff": req.Defense_diff,
-                "Sp_Atk_diff": req.Sp_Atk_diff,
-                "Sp_Def_diff": req.Sp_Def_diff,
-                "Speed_diff": req.Speed_diff,
-                "Type_Effectiveness_1": eff1,
-                "Type_Effectiveness_2": eff2,
-                "BST_1": req.BST_1,
-                "BST_2": req.BST_2,
-                "BST_diff": req.BST_diff,
-            }
-        ]
-    )
+    X = build_features_from_raw(req)
     print(ml_model.predict(X))
     proba = ml_model.predict_proba(X)[0]
     return {"probability_loss": float(proba[0]), "probability_win": float(proba[1])}

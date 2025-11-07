@@ -1,10 +1,16 @@
 import os
 from dotenv import load_dotenv
 import pandas as pd
+import numpy as np
 
 load_dotenv()
 
 DATA_PATH = os.getenv("DATA_PATH")
+
+
+def ratio_stats(a: float, b: float):
+    denom = a.astype(float) + b.astype(float)
+    return np.where(denom == 0, 0.5, a.astype(float) / denom)
 
 
 def data_prep(
@@ -31,6 +37,13 @@ def data_prep(
     )
     data["BST_diff"] = data["BST_1"] - data["BST_2"]
 
+    data["HP_ratio"] = ratio_stats(data["HP_1"], data["HP_2"])
+    data["Attack_ratio"] = ratio_stats(data["Attack_1"], data["Attack_2"])
+    data["Defense_ratio"] = ratio_stats(data["Defense_1"], data["Defense_2"])
+    data["Sp_Atk_ratio"] = ratio_stats(data["Sp_Atk_1"], data["Sp_Atk_2"])
+    data["Sp_Def_ratio"] = ratio_stats(data["Sp_Def_1"], data["Sp_Def_2"])
+    data["Speed_ratio"] = ratio_stats(data["Speed_1"], data["Speed_2"])
+
     # Drop columns that are not needed
     data_clean = data.drop(columns=drop_columns, errors="ignore")
 
@@ -40,7 +53,21 @@ def data_prep(
     # Remove rows with duplicate values
     data_clean = data_clean.drop_duplicates()
 
-    print(data_clean[["BST_1", "BST_2", "BST_diff"]].head())
+    print(
+        data_clean[
+            [
+                "BST_1",
+                "BST_2",
+                "BST_diff",
+                "HP_ratio",
+                "Attack_ratio",
+                "Defense_ratio",
+                "Sp_Atk_ratio",
+                "Sp_Def_ratio",
+                "Speed_ratio",
+            ]
+        ].head()
+    )
     return data_clean
 
 
