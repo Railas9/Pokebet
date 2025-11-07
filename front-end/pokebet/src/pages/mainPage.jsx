@@ -116,11 +116,21 @@ function MainPage() {
 	}
 
 	const handleBetLeft = () => {
-		navigate("/fight/left/" + selectedLeftId + "_" + selectedRightId + "/" + probaBar.left);
+		if (selectedLeftId && selectedRightId != null) {
+			navigate("/fight/left/" + selectedLeftId + "_" + selectedRightId + "/" + probaBar.left);
+		}
+		else {
+			alert("Veuillez sélectionner les deux Pokémon avant de parier.");
+		}
 	}
 
 	const handleBetRight = () => {
-		navigate("/fight/right/" + selectedLeftId + "_" + selectedRightId + "/" + probaBar.left);
+		if (selectedLeftId && selectedRightId != null) {
+			navigate("/fight/right/" + selectedLeftId + "_" + selectedRightId + "/" + probaBar.left);
+		}
+		else {
+			alert("Veuillez sélectionner les deux Pokémon avant de parier.");
+		}
 	}
 
 	const handleShuffleRight = () => {
