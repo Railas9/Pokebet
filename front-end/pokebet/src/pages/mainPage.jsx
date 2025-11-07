@@ -30,10 +30,10 @@ function MainPage() {
       });
       const data = await response.json();
       console.log("Prédiction reçue :", data);
-      setProbaBar({
-        left: data.probability_win * 100,
-        right: data.probability_loss * 100,
-      });
+	setProbaBar({
+	  left: Math.round(data.probability_win * 100),
+	  right: Math.round(data.probability_loss * 100),
+	});
     } catch (err) {
       console.error(
         "Erreur lors de l'envoi des données de différence de statistiques.",
