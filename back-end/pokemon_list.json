@@ -18,6 +18,40 @@
     },
     {
         "id": 2,
+        "name": "Méga-Amphinobi",
+        "image_url": "./assets/pokemon/Amphinobi.png",
+        "types": {
+            "type1": "Eau",
+            "type2": "Ténèbres"
+        },
+        "stats": {
+            "hp": 72,
+            "attack": 125,
+            "defense": 77,
+            "sp_attack": 133,
+            "sp_defense": 81,
+            "speed": 142
+        }
+    },
+    {
+        "id": 3,
+        "name": "Sachanobi",
+        "image_url": "./assets/pokemon/Amphinobi.png",
+        "types": {
+            "type1": "Eau",
+            "type2": "Ténèbres"
+        },
+        "stats": {
+            "hp": 72,
+            "attack": 145,
+            "defense": 67,
+            "sp_attack": 153,
+            "sp_defense": 71,
+            "speed": 132
+        }
+    },
+    {
+        "id": 4,
         "name": "Ronflex",
         "image_url": "./assets/pokemon/Ronflex.png",
         "types": {
@@ -33,7 +67,23 @@
         }
     },
     {
-        "id": 3,
+        "id": 5,
+        "name": "Ronflex (Gigamax)",
+        "image_url": "./assets/pokemon/Ronflex.png",
+        "types": {
+            "type1": "Normal"
+        },
+        "stats": {
+            "hp": 240,
+            "attack": 110,
+            "defense": 65,
+            "sp_attack": 65,
+            "sp_defense": 110,
+            "speed": 30
+        }
+    },
+    {
+        "id": 6,
         "name": "Ectoplasma",
         "image_url": "./assets/pokemon/Ectoplasma.png",
         "types": {
@@ -50,7 +100,41 @@
         }
     },
     {
-        "id": 4,
+        "id": 7,
+        "name": "Méga-Ectoplasma",
+        "image_url": "./assets/pokemon/Ectoplasma.png",
+        "types": {
+            "type1": "Spectre",
+            "type2": "Poison"
+        },
+        "stats": {
+            "hp": 60,
+            "attack": 65,
+            "defense": 80,
+            "sp_attack": 170,
+            "sp_defense": 95,
+            "speed": 130
+        }
+    },
+    {
+        "id": 8,
+        "name": "Ectoplasma (Gigamax)",
+        "image_url": "./assets/pokemon/Ectoplasma.png",
+        "types": {
+            "type1": "Spectre",
+            "type2": "Poison"
+        },
+        "stats": {
+            "hp": 90,
+            "attack": 65,
+            "defense": 80,
+            "sp_attack": 170,
+            "sp_defense": 95,
+            "speed": 130
+        }
+    },
+    {
+        "id": 9,
         "name": "Makuhita",
         "image_url": "./assets/pokemon/Makuhita.png",
         "types": {
@@ -66,7 +150,7 @@
         }
     },
     {
-        "id": 5,
+        "id": 10,
         "name": "Brutalibré",
         "image_url": "/assets/pokemon/Brutalibré.png",
         "types": {
@@ -83,7 +167,24 @@
         }
     },
     {
-        "id": 6,
+        "id": 11,
+        "name": "Méga-Brutalibré",
+        "image_url": "/assets/pokemon/Brutalibré.png",
+        "types": {
+            "type1": "Combat",
+            "type2": "Vol"
+        },
+        "stats": {
+            "hp": 78,
+            "attack": 137,
+            "defense": 100,
+            "sp_attack": 74,
+            "sp_defense": 93,
+            "speed": 118
+        }
+    },
+    {
+        "id": 12,
         "name": "Rayquaza",
         "image_url": "./assets/pokemon/Amphinobi.png",
         "types": {
@@ -100,7 +201,7 @@
         }
     },
     {
-        "id": 7,
+        "id": 13,
         "name": "Méga-Rayquaza",
         "image_url": "./assets/pokemon/Amphinobi.png",
         "types": {
@@ -117,7 +218,7 @@
         }
     },
     {
-        "id": 8,
+        "id": 14,
         "name": "Lucario",
         "image_url": "./assets/pokemon/Amphinobi.png",
         "types": {
@@ -134,7 +235,7 @@
         }
     },
     {
-        "id": 9,
+        "id": 15,
         "name": "Méga-Lucario",
         "image_url": "./assets/pokemon/Amphinobi.png",
         "types": {
@@ -151,7 +252,7 @@
         }
     },
     {
-        "id": 10,
+        "id": 16,
         "name": "Magicarpe",
         "image_url": "./assets/pokemon/Amphinobi.png",
         "types": {
