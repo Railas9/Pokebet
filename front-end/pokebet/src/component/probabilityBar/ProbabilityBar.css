@@ -1,0 +1,62 @@
+.probability-bar-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 8px;
+	margin: 20% 0;
+	width: 150%;
+	height: 1%;
+	margin-bottom: 10px;
+}
+
+.probability-label {
+	color: white;
+	font-size: 2rem;
+	align-self: flex-start;
+}
+
+.probability-bar {
+	width: 100%;
+	height: 30px;
+	display: flex;
+	border-radius: 15px;
+	overflow: hidden;
+	border: 6px solid rgba(255, 255, 255, 1);
+}
+
+.probability-segment {
+	height: 100%;
+	transition: width 0.3s ease;
+}
+
+.probability-segment.left {
+	background: #00B3FF;
+}
+
+.probability-segment.right {
+	background: #ff0000;
+}
+
+.probability-values {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	color: white;
+	font-size: 0.95rem;
+	margin-top: 4px;
+	position: relative;
+}
+
+.value-left {
+	position: absolute;
+	left: 0%;
+	margin-top: 0;
+    font-size: xx-large;
+}
+
+.value-right {
+	position: absolute;
+	right: 0%;
+	margin-top: 0;
+	font-size: xx-large;
+}

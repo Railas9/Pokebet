@@ -1,0 +1,55 @@
+.battle-type-selector {
+	position: absolute;
+	top: 80px;
+	right: 20px;
+	display: flex;
+	flex-direction: column;
+	color: white;
+	font-size: 150%;
+	z-index: 10;
+}
+
+.battle-type-label {
+	margin-bottom: 4px;
+}
+
+.battle-option {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 5%;
+	cursor: pointer;
+}
+
+.battle-option input[type="radio"] {
+	display: none;
+}
+
+.checkbox-custom {
+	width: 18px;
+	height: 18px;
+	border: 2px solid white;
+	border-radius: 4px;
+	display: inline-block;
+	position: relative;
+	transition: background-color 0.2s;
+}
+
+.battle-option input[type="radio"]:checked + .checkbox-custom {
+	background-color: #4a90e2;
+	border-color: #4a90e2;
+}
+
+.battle-option input[type="radio"]:checked + .checkbox-custom::after {
+	content: "✓";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	font-size: 12px;
+}
+
+.battle-text {
+	user-select: none;
+}

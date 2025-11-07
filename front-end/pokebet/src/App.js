@@ -1,16 +1,21 @@
-import './App.css';
-import bg_logo from './assets/BG_Logo.svg';
-import logo from './assets/PokeBet_Group.svg';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+
+import MainPage from "./pages/mainPage.jsx"
+import FightPage from "./pages/fightPage.jsx"
+import ResultPage from "./pages/resultPage.jsx"
 
 function App() {
-  return (
-    <div className="App">
-      <div className="header">
-        <img className="bg-logo" src={bg_logo} alt='PokeBet_BG'></img>
-        <img className="logo" src={logo} alt='PokeBet_Logo'></img>
-      </div>
-    </div>
-  );
+	return (
+		<div className="App">
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<MainPage />} />
+					<Route path="/fight/:side/:ids/:probas" element={<FightPage />} />
+					<Route path="/results/:side/:winner" element={<ResultPage />} />
+				</Routes>
+			</BrowserRouter>
+		</div>
+	)
 }
 
-export default App;
+export default App

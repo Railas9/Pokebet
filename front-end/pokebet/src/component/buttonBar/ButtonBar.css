@@ -1,0 +1,25 @@
+.button-bar {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	justify-content: flex-end;
+	padding-right: 150px;
+	padding-left: 150px;
+}
+
+@media (max-width: 768px) {
+	.button-bar {
+		gap: 20px;
+		flex-wrap: wrap;
+	}
+
+	.button-group {
+		gap: 8px;
+	}
+
+	.button-bar .action-button {
+		padding: 10px 20px;
+		font-size: 0.95rem;
+		min-width: 100px;
+	}
+}

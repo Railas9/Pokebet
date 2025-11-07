@@ -1,0 +1,90 @@
+.pokemon-selector-container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 0;
+	border-radius: 20px;
+}
+
+.info-container {
+	display: flex;
+	color: #ffffff;
+	flex-direction: column;
+	margin-left: 12px;
+}
+
+.pokemon-types {
+	font-size: 150%;
+}
+
+.base-stat-total {
+	font-size: 150%;
+}
+
+.pokeball-btn {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	margin: 0;
+	transition: transform 0.12s, filter 0.12s;
+	width: 100px;
+}
+
+.pokeball-btn:hover {
+	transform: scale(1.08);
+	filter: brightness(1.15);
+}
+
+.pokeball-svg {
+	width: 100%;
+	display: block;
+}
+
+.select-text {
+	font-size: 200%;
+	color: #fff;
+	user-select: none;
+	pointer-events: none;
+}
+
+.dropdown-list {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	margin-top: 8px;
+	background: #222e;
+	border-radius: 12px;
+	box-shadow: 0 2px 16px #0006;
+	padding: 0;
+	list-style: none;
+	z-index: 100;
+	min-width: 180px;
+	max-height: 150px; /* Adjust height as needed */
+  	overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.dropdown-item {
+	padding: 10px 24px;
+	color: #fff;
+	cursor: pointer;
+	transition: background 0.12s;
+	font-size: 1.08rem;
+}
+
+.dropdown-item:hover {
+	background: #333b;
+}
+
+@media (max-width: 600px) {
+	.pokemon-selector-container {
+		gap: 10px;
+		padding: 10px 8px;
+	}
+	.pokeball-img {
+		width: 38px;
+	}
+	.select-text {
+		font-size: 0.95rem;
+	}
+}

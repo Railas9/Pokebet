@@ -1,0 +1,270 @@
+[
+    {
+        "id": 1,
+        "name": "Amphinobi",
+        "image_url": "./assets/pokemon/Amphinobi.png",
+        "types": {
+            "type1": "Water",
+            "type2": "Dark"
+        },
+        "stats": {
+            "hp": 72,
+            "attack": 95,
+            "defense": 67,
+            "sp_attack": 103,
+            "sp_defense": 71,
+            "speed": 122
+        }
+    },
+    {
+        "id": 2,
+        "name": "Méga-Amphinobi",
+        "image_url": "./assets/pokemon/Amphinobi.png",
+        "types": {
+            "type1": "Water",
+            "type2": "Dark"
+        },
+        "stats": {
+            "hp": 72,
+            "attack": 125,
+            "defense": 77,
+            "sp_attack": 133,
+            "sp_defense": 81,
+            "speed": 142
+        }
+    },
+    {
+        "id": 3,
+        "name": "Sachanobi",
+        "image_url": "./assets/pokemon/Amphinobi.png",
+        "types": {
+            "type1": "Water",
+            "type2": "Dark"
+        },
+        "stats": {
+            "hp": 72,
+            "attack": 145,
+            "defense": 67,
+            "sp_attack": 153,
+            "sp_defense": 71,
+            "speed": 132
+        }
+    },
+    {
+        "id": 4,
+        "name": "Ronflex",
+        "image_url": "./assets/pokemon/Ronflex.png",
+        "types": {
+            "type1": "Normal"
+        },
+        "stats": {
+            "hp": 160,
+            "attack": 110,
+            "defense": 65,
+            "sp_attack": 65,
+            "sp_defense": 110,
+            "speed": 30
+        }
+    },
+    {
+        "id": 5,
+        "name": "Ronflex (Gigamax)",
+        "image_url": "./assets/pokemon/Ronflex.png",
+        "types": {
+            "type1": "Normal"
+        },
+        "stats": {
+            "hp": 240,
+            "attack": 110,
+            "defense": 65,
+            "sp_attack": 65,
+            "sp_defense": 110,
+            "speed": 30
+        }
+    },
+    {
+        "id": 6,
+        "name": "Ectoplasma",
+        "image_url": "./assets/pokemon/Ectoplasma.png",
+        "types": {
+            "type1": "Ghost",
+            "type2": "Poison"
+        },
+        "stats": {
+            "hp": 60,
+            "attack": 65,
+            "defense": 60,
+            "sp_attack": 130,
+            "sp_defense": 75,
+            "speed": 110
+        }
+    },
+    {
+        "id": 7,
+        "name": "Méga-Ectoplasma",
+        "image_url": "./assets/pokemon/Ectoplasma.png",
+        "types": {
+            "type1": "Ghost",
+            "type2": "Poison"
+        },
+        "stats": {
+            "hp": 60,
+            "attack": 65,
+            "defense": 80,
+            "sp_attack": 170,
+            "sp_defense": 95,
+            "speed": 130
+        }
+    },
+    {
+        "id": 8,
+        "name": "Ectoplasma (Gigamax)",
+        "image_url": "./assets/pokemon/Ectoplasma.png",
+        "types": {
+            "type1": "Ghost",
+            "type2": "Poison"
+        },
+        "stats": {
+            "hp": 90,
+            "attack": 65,
+            "defense": 80,
+            "sp_attack": 170,
+            "sp_defense": 95,
+            "speed": 130
+        }
+    },
+    {
+        "id": 9,
+        "name": "Makuhita",
+        "image_url": "./assets/pokemon/Makuhita.png",
+        "types": {
+            "type1": "Fighting"
+        },
+        "stats": {
+            "hp": 72,
+            "attack": 60,
+            "defense": 30,
+            "sp_attack": 20,
+            "sp_defense": 30,
+            "speed": 25
+        }
+    },
+    {
+        "id": 10,
+        "name": "Brutalibré",
+        "image_url": "/assets/pokemon/Brutalibré.png",
+        "types": {
+            "type1": "Fighting",
+            "type2": "Vol"
+        },
+        "stats": {
+            "hp": 78,
+            "attack": 92,
+            "defense": 75,
+            "sp_attack": 74,
+            "sp_defense": 63,
+            "speed": 118
+        }
+    },
+    {
+        "id": 11,
+        "name": "Méga-Brutalibré",
+        "image_url": "/assets/pokemon/Brutalibré.png",
+        "types": {
+            "type1": "Fighting",
+            "type2": "Vol"
+        },
+        "stats": {
+            "hp": 78,
+            "attack": 137,
+            "defense": 100,
+            "sp_attack": 74,
+            "sp_defense": 93,
+            "speed": 118
+        }
+    },
+    {
+        "id": 12,
+        "name": "Rayquaza",
+        "image_url": "./assets/pokemon/Amphinobi.png",
+        "types": {
+            "type1": "Dragon",
+            "type2": "Flying"
+        },
+        "stats": {
+            "hp": 105,
+            "attack": 150,
+            "defense": 90,
+            "sp_attack": 150,
+            "sp_defense": 90,
+            "speed": 95
+        }
+    },
+    {
+        "id": 13,
+        "name": "Méga-Rayquaza",
+        "image_url": "./assets/pokemon/Amphinobi.png",
+        "types": {
+            "type1": "Dragon",
+            "type2": "Flying"
+        },
+        "stats": {
+            "hp": 105,
+            "attack": 180,
+            "defense": 100,
+            "sp_attack": 180,
+            "sp_defense": 100,
+            "speed": 115
+        }
+    },
+    {
+        "id": 14,
+        "name": "Lucario",
+        "image_url": "./assets/pokemon/Amphinobi.png",
+        "types": {
+            "type1": "Fighting",
+            "type2": "Steel"
+        },
+        "stats": {
+            "hp": 70,
+            "attack": 110,
+            "defense": 70,
+            "sp_attack": 115,
+            "sp_defense": 70,
+            "speed": 90
+        }
+    },
+    {
+        "id": 15,
+        "name": "Méga-Lucario",
+        "image_url": "./assets/pokemon/Amphinobi.png",
+        "types": {
+            "type1": "Fighting",
+            "type2": "Steel"
+        },
+        "stats": {
+            "hp": 70,
+            "attack": 145,
+            "defense": 88,
+            "sp_attack": 140,
+            "sp_defense": 70,
+            "speed": 112
+        }
+    },
+    {
+        "id": 16,
+        "name": "Magicarpe",
+        "image_url": "./assets/pokemon/Amphinobi.png",
+        "types": {
+            "type1": "Water"
+        },
+        "stats": {
+            "hp": 20,
+            "attack": 10,
+            "defense": 55,
+            "sp_attack": 15,
+            "sp_defense": 20,
+            "speed": 80
+        }
+    }
+]
